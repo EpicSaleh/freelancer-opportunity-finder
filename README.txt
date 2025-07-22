@@ -111,4 +111,4 @@ node send.js
 
 ## Contact
 
-For questions or collaboration, please contact [Your Name/Email]. 
+Have a question? Open an issue or start a discussion!
