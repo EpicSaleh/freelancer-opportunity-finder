@@ -1,0 +1,216 @@
+# Copilot Studio Agent Logic: Freelancer Opportunity Finder
+
+## Topic 1: Content Analyser
+
+```
+kind: AdaptiveDialog
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: UserInput
+    description: Users intent related to freelancer
+    shouldPromptUser: true
+    inputSettings:
+      prompt:
+        activity: **Which area are you interested?**
+        mode: Strict
+
+      repeatCount: 1
+      defaultValue: =Blank()
+      unrecognizedPrompt:
+        activity: |-
+          **Oops!**
+          I didn’t quite catch the type of project you're after.
+          Mind telling me again? Something like "membership site" or "ecommerce dashboard" would help 🛠️💡
+        mode: Strict
+
+modelDescription: "Find and summarize newly posted projects on my dataverse table: freelancer_projects related to platform, SaaS, web apps, or Mandarin-speaking opportunities. If the user is looking for potential leads or competitive analysis, this topic can help surface relevant project links and insights."
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    displayName: 分析freelancer内容
+    triggerQueries:
+      - freelancer 上有什么新项目？
+      - 找找 freelancer 上的接案机会
+      - freelancer 平台更新了什么项目？
+      - freelancer 有适合 Webflow 或 Shopify 的吗？
+      - 我想看看 SaaS、平台类的最新需求
+      - 帮我看下有哪些平台类项目
+      - 给我找找 freelancer 上的 leads
+      - What new projects are on Freelancer?
+      - Help me check new projects on Freelancer
+      - Show opportunities for Chinese freelancers
+      - Any high-budget jobs on Freelancer?
+
+  actions:
+    - kind: InvokeAIBuilderModelAction
+      id: invokeAIBuilderModelAction_AbBFWd
+      input:
+        binding:
+          Text_20input: =System.LastMessage.Text
+
+      output:
+        binding:
+          predictionOutput: Topic.UserInput
+
+      aIModelId: 2da1f7ce-e13f-4721-9746-8173cd68e25b
+
+    - kind: ConditionGroup
+      id: conditionGroup_9cJK3p
+      conditions:
+        - id: conditionItem_sOT8yH
+          condition: =IsBlank(Topic.UserInput)
+          actions:
+            - kind: SendActivity
+              id: sendActivity_W3wxJL
+              activity: Sorry, I can't understand your keywords.
+
+            - kind: BeginDialog
+              id: se0bvy
+              dialog: crae3_xhsOpportunityFinder.topic.ResetConversation
+
+    - kind: InvokeFlowAction
+      id: invokeFlowAction_IIOKe4
+      input:
+        binding:
+          text: =System.LastMessage.Text
+
+      output:
+        binding:
+          result: Global.FormattedText
+          ttle: Global.Selectableoptions
+
+      flowId: 01bb3793-e253-f011-bec1-000d3acb6282
+
+    - kind: SendActivity
+      id: sendActivity_Yss0eN
+      activity: "{Global.FormattedText} "
+
+    - kind: ConditionGroup
+      id: eWYJ3d
+      conditions:
+        - id: PehJZY
+          condition: =Global.FormattedText = "There is no projects."
+          actions:
+            - kind: SendActivity
+              id: Ey7CPP
+              activity: No new projects found.
+
+            - kind: EndConversation
+              id: N327ew
+
+    - kind: Question
+      id: question_VlyAhN
+      interruptionPolicy:
+        allowInterruption: true
+
+      variable: Topic.Boolean
+      prompt: Do you need suggestion on any of the projects?
+      entity:
+        kind: EmbeddedEntity
+        definition:
+          kind: ClosedListEntity
+          items:
+            - id: Yes
+              displayName: Yes
+
+            - id: No
+              displayName: No
+
+        displayName: EmbeddedEntity-7dKOEt
+
+    - kind: ConditionGroup
+      id: conditionGroup_2F7vHW
+      conditions:
+        - id: conditionItem_EymSEO
+          condition: =Topic.Boolean = 'crae3_xhsOpportunityFinder.topic.0wy.main.question_VlyAhN'.Yes
+          displayName: Need Help
+
+      elseActions:
+        - kind: CancelAllDialogs
+          id: 7lCxh2
+
+    - kind: Question
+      id: question_n19P0n
+      interruptionPolicy:
+        allowInterruption: true
+
+      alwaysPrompt: true
+      variable: Global.UserAnswer
+      prompt:
+        value: The first title in the list
+        text:
+          - Which project you need help with? Please copy paste the title of the interested project.
+
+      entity: StringPrebuiltEntity
+
+    - kind: SetVariable
+      id: setVariable_G56rQ0
+      variable: Global.UserAnswer
+      value: =System.LastMessage.Text
+
+    - kind: BeginDialog
+      id: 2iZ53a
+      dialog: crae3_xhsOpportunityFinder.topic.cQn
+
+inputType:
+  properties:
+    UserInput:
+      displayName: UserInput
+      type:
+        kind: Record
+
+outputType:
+  properties:
+    Var1:
+      displayName: Var1
+      type: String.
+```
+
+---
+
+## Topic 2: Detail Summary
+
+```
+kind: AdaptiveDialog
+modelDescription: |-
+  This tool can handle NLP like these: 
+  -想看第四条
+  -第五条总结
+  -第三条合适我们吗？
+  -你觉得第二条怎么样？
+beginDialog:
+  kind: OnRedirect
+  id: main
+  actions:
+    - kind: SendActivity
+      id: sendActivity_o1fXxh
+      activity: answers{Global.UserAnswer}
+
+    - kind: InvokeAIBuilderModelAction
+      id: invokeAIBuilderModelAction_zpNpaG
+      input:
+        binding:
+          project_20table: =Global.FormattedText
+          user_20interest: =Global.UserAnswer
+
+      output:
+        binding:
+          predictionOutput: Topic.Var1
+
+      aIModelId: f7d16621-e00b-4cb9-899e-097e1b6ec5bb
+
+    - kind: SendActivity
+      id: SendActivity_SqVsa5
+      activity: 正在获取项目详情，请稍候...
+
+    - kind: SendActivity
+      id: SendActivity_glVE3k
+      activity: |-
+        Here is the summary of your selected project and suggested CTA:
+
+        {Topic.Var1.structuredOutput}
+
+inputType: {}
+outputType: {}
+```

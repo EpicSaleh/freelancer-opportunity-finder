@@ -1,0 +1,68 @@
+Testing & Error Handling Guide
+=============================
+
+## End-to-End Testing
+
+1. **Setup**
+   - Ensure your `.env` file contains a valid `WEBHOOK_URL` pointing to your Power Automate flow.
+   - Install dependencies: `npm install`
+   - Confirm your Dataverse table and Power Automate flow are set up and running.
+   - Configure the Copilot Studio agent with the provided logic and prompts.
+
+2. **Run the Scraper**
+   - Execute: `node send.js`
+   - Observe the console for logs about scraping, filtering, and sending projects.
+   - Check that new projects appear in your Dataverse table.
+   - Verify that `sent_projects.json` is updated with new project links.
+
+3. **Test the Copilot Studio Agent**
+   - Interact with the agent using various queries (e.g., "Show me Shopify projects under $1000").
+   - Confirm the agent extracts keywords and budget, triggers the Power Automate flow, and returns relevant results.
+   - Ask for details on a specific project and check that the agent provides a summary and CTA.
+
+4. **Review Power Automate & Dataverse**
+   - Use the screenshots in `docs/power-automate-overview.png`, `docs/power-automate-details-1.png`, and `docs/power-automate-details-2.png` for reference.
+   - Check the Dataverse schema in `docs/dataverse-schema.png` to ensure all required columns are present.
+
+---
+
+## Common Errors & Handling
+
+### 1. **Missing or Invalid WEBHOOK_URL**
+- **Symptom:** Script exits with error or fails to send projects.
+- **Solution:** Set a valid `WEBHOOK_URL` in your `.env` file.
+
+### 2. **No Projects Scraped or Sent**
+- **Symptom:** Console shows "No new matching projects found." or no data in Dataverse.
+- **Solution:**
+  - Check your keywords in `send.js`.
+  - Ensure Freelancer.com page structure hasn't changed.
+  - Confirm you haven't already sent all matching projects (see `sent_projects.json`).
+
+### 3. **Power Automate Flow Fails**
+- **Symptom:** Projects not appearing in Dataverse, or flow errors in Power Automate.
+- **Solution:**
+  - Check Power Automate run history for errors.
+  - Ensure the flow is published and the webhook URL is correct.
+  - Verify required fields match the Dataverse schema (`docs/dataverse-schema.png`).
+
+### 4. **Copilot Agent Not Responding or Incorrect Results**
+- **Symptom:** Agent doesn't extract keywords/budget, or returns no/mismatched results.
+- **Solution:**
+  - Review the prompt in `docs/example-user-intent-prompt.txt`.
+  - Check agent logic in `docs/copilot-agent-logic.txt`.
+  - Test with different phrasings and budgets.
+
+### 5. **Script Crashes or Unexpected Errors**
+- **Symptom:** Unhandled exceptions, script stops unexpectedly.
+- **Solution:**
+  - Check for missing dependencies (`npm install`).
+  - Review console logs for stack traces.
+  - Ensure Node.js version is compatible (v16+ recommended).
+
+---
+
+## Tips
+- Regularly update your keywords and review the scraping logic if Freelancer.com changes its layout.
+- Keep screenshots and schema docs up to date for onboarding and troubleshooting.
+- Use the logs in `freelancer_cron.log` for historical debugging. 

@@ -1,0 +1,85 @@
+Purpose:
+--------
+This prompt is used to leverage GPT to analyze user-provided text and extract relevant keywords (including possible variations and synonyms) that the user wants to search for in the database. It also identifies any specific budget mentioned. The extracted keywords and budget are then used to filter and search project listings more effectively.
+
+---
+
+Prompt Name: Id user intent prompt
+=================================
+
+Prompt Instructions:
+--------------------
+From the user-provided text ("Text input"), identify one or more relevant keywords from the following list, even if synonyms or related phrases are used:
+
+Keyword List:
+- website
+- eCommerce
+- SEO
+- platform
+- dashboard
+- membership
+- landing page
+- Shopify
+- WordPress
+- Webflow
+- Wix
+- automation
+- chatbot
+- front-end
+- web development
+
+You may include slight variations, such as:
+- "web dev" → "web development"
+- "SEO strategy" → "SEO"
+- "custom dashboard" → "dashboard"
+
+If the budget mentioned in the text includes specific numbers (e.g. "$500", "$1000–$2000", "under $300"), extract the minimum and maximum budget as numbers (integer).
+If only one number is mentioned, use it for both min and max.
+Ignore vague terms like "bids", "negotiable", or "mid-range".
+
+Return only the matched keywords and budget in the following JSON format:
+```
+{
+  "keyword": [
+    { "value": "platform" },
+    { "value": "eCommerce" }
+  ],
+  "budget": {
+    "min": 300,
+    "max": 500
+  }
+}
+```
+If no relevant keywords are found, return:
+```
+{
+  "keywords": []
+}
+```
+If no valid budget number is provided (e.g., says 'bidding' or 'TBD'), return 0 for both.
+
+Do not include keywords that don’t appear or clearly match. Be concise.
+
+---
+
+Example Customized JSON Response:
+---------------------------------
+```
+{
+  "keywords": [
+    {
+      "value": "web development"
+    },
+    {
+      "value": "SEO"
+    },
+    {
+      "value": "Shopify"
+    }
+  ],
+  "budget": {
+    "min": 300,
+    "max": 500
+  }
+}
+``` 
